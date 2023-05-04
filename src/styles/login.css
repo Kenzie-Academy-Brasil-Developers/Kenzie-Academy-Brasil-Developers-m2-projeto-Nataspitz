@@ -1,0 +1,99 @@
+#home{
+    background-color: var(--grey-7);
+    border: 1px solid var(--brand-1);
+    color: var(--brand-1);
+}
+#home:hover{
+    background-color: var(--brand-2);
+    color: var(--grey-6);
+}
+
+.header__buttons > button{
+    background-color: var(--brand-1);
+    border: 1px solid var(--grey-7);
+    color: var(--grey-6)
+}
+.header__buttons > button:hover{
+    background-color: var(--brand-2);
+}
+
+main{
+   background-image: url("../assets/img/inputs.png");
+    height: 800px;
+}
+
+.modal__container{
+    background-color: var(--grey-5);
+    height: 350px;
+    width: 350px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 35px 20px;
+}
+
+h1{
+    margin-bottom: 5px;;
+}
+
+p{
+    margin-bottom: 15px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input{
+    height: 30px;
+    padding: 10px;
+    border: 1px solid var(--grey-3)
+}
+input:focus{
+    border: 1px solid red;
+}
+
+
+form > button{
+    height: 30px;
+    color: var(--grey-6);
+    background-color: var(--brand-1);
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+form > button:hover{
+    background-color: var(--brand-2);
+    color: var(--grey-6);
+}
+
+
+.modal__register{
+    display: flex;
+    flex-direction: column;
+}
+
+span{
+    color: var(--grey-1);
+    font-size: var( --font-size-text2);
+    font-weight: var(--weight-2);
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.modal__register > button{
+    height: 30px;
+    background-color: var(--grey-5);
+    border:  1px solid var(--brand-1);
+    color: var(--brand-1);
+    font-weight: var(--weight-1);
+    cursor: pointer;
+}
+.modal__register > button:hover{
+    background-color: var(--brand-2);
+    color: var(--grey-6);
+}
+
+
+
