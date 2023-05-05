@@ -43,10 +43,27 @@ select{
 .companies__filter{
     height: 810px;
     margin-top: 10px;
-    padding: 20px;
+    padding: 20px 40px;
     box-shadow: 3px 4px 2em var(--grey-3);
     transform: scale();
     background-color: var(--grey-5);
+}
+
+.companies__list{
+    overflow-y: auto;
+    height: 750px;
+}
+
+.companies__card{
+    list-style: none;
+    border: 2px solid red;
+    height: 80px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+h3{
+    color: var(--grey-1);
 }
 
 

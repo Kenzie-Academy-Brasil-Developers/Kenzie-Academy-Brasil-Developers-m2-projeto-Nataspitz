@@ -24,11 +24,26 @@ export  function loginForHome() {
 
 export function loginForRegister() {
     const buttonsRegister = document.querySelectorAll(".register")
-    console.log(buttonsRegister)
 
     buttonsRegister.forEach( button =>{
         button.addEventListener("click", () =>{
-            location.replace("../../index.html")
+            location.replace("../pages/register.html")
         })
+    })
+}
+
+export function registerForLogin() {
+    const burronLogin = document.querySelector(".login")
+
+    burronLogin.addEventListener("click", () =>{
+        location.replace("../pages/login.html")
+    })
+}
+
+export function registerForHome() {
+    const buttonHome = document.querySelector(".home")
+
+    buttonHome.addEventListener("click", () =>{
+        location.replace("../../index.html")
     })
 }
