@@ -2,6 +2,7 @@
 export async function renderCompanies(value) {
     const object = await value
     const ul = document.querySelector(".companies__list")
+    ul.innerHTML = ""
 
     object.forEach(item => {
         // ul > li
