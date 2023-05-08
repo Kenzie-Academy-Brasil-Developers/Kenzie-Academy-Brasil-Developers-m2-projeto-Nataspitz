@@ -10,6 +10,8 @@ openRegister()
 await renderCompanies(await allCompanies())
 console.log(await allCompanies())
 
+console.log(byCategoryId())
+
 
 
 

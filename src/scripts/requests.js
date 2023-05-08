@@ -3,8 +3,8 @@ import { toast } from "./toast.js"
 const token = JSON.parse(localStorage.getItem("@Empresas : token")) || ""
 const urlBase = "http://localhost:3333"
 const requestHeader = {
-    "Content-type": "application/json",
-    Autthorization: "Bearer token"
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`
 }
 export const green = "#36B37E"
 export const red = "#FF5630"
@@ -22,8 +22,8 @@ export async function allCategories(){
     return urlCategory
 }
 
-export async function byCategory(category) {
-    const urlFilter = await fetch(`${urlBase}/companies/readByCategory/${category}`, {
+export async function byCategoryId(id) {
+    const urlFilter = await fetch(`${urlBase}/companies/readByCategory/${id}`, {
         method: "GET"
     })
     try {
@@ -48,21 +48,26 @@ export async function allCompanies(){
     return urlCompany
 }
 
-//Task baseada na DEMO
+//Funçoes abaixo baseadas na DEMO
 export async function createEmployee(body) {
+    console.log(body)
 const urlTask = await fetch(`${urlBase}/employees/create`, {
         method: "POST",
         headers : requestHeader,
         body: JSON.stringify(body)
     })
-    .them(async (res) =>{
+    .then(async (res) =>{
         if (res.ok) {
             toast(green, "Bem Vindo(a) à Kenzie Empresas")
-            return res.json()
+            location.replace("./login.html")
+            return  await res.json()
         }else{
-            const response = await res.jason()
+            const response = await res.json()
             toast(red, response.message)
         }
+    })
+    .catch((error)=> {
+        console.log(error)
     })
     return urlTask
 }
@@ -87,7 +92,7 @@ export async function loginAccount(loginBody) {
            }
         
         }else{
-            const resJson = await res.json()
+            await res.json()
             toast(red, "Login inválido")
         }
     })

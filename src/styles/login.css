@@ -19,7 +19,9 @@
 
 main{
    background-image: url("../assets/img/inputs.png");
-    height: 800px;
+    height: 100vh;
+    width: 100%;
+    padding-top: 180px;
 }
 
 .modal__container{
@@ -27,7 +29,7 @@ main{
     height: 350px;
     width: 350px;
     margin: auto;
-    margin-top: 80px;
+    /* margin-top: 80px; */
     padding: 35px 20px;
 }
 

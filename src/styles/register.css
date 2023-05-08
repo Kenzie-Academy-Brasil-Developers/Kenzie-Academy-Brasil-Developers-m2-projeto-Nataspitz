@@ -18,9 +18,11 @@
 }
 
 main{
-   background-image: url("../assets/img/inputs.png");
-    height: 800px;
-}
+    background-image: url("../assets/img/inputs.png");
+     height: 100vh;
+     width: 100%;
+     padding-top: 120px;
+ }
 
 .modal__container{
     background-color: var(--grey-5);
