@@ -47,3 +47,4 @@ export function registerForHome() {
         location.replace("../../index.html")
     })
 }
+

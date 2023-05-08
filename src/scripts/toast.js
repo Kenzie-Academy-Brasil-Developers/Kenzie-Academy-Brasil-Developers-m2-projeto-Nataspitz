@@ -1,8 +1,5 @@
-const green = "#36B37E"
-const red = "#FF5630"
 
 //A criação do toast foi baseada na DEMO
-
 export function toast(color , message) {
     const body = document.querySelector("body")
 
