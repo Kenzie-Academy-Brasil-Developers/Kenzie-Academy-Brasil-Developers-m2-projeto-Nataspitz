@@ -41,10 +41,12 @@ export function registerForLogin() {
 }
 
 export function registerForHome() {
-    const buttonHome = document.querySelector(".home")
+    const buttonHome = document.querySelectorAll(".home")
 
-    buttonHome.addEventListener("click", () =>{
-        location.replace("../../index.html")
+    buttonHome.forEach( home =>{
+        home.addEventListener("click", () =>{
+            location.replace("../../index.html")
+    })
     })
 }
 
