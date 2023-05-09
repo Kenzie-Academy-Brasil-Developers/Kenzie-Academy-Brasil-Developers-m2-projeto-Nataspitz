@@ -8,9 +8,9 @@ openLogin()
 openRegister()
  await selectByCategory(await allCategories())
 await renderCompanies(await allCompanies())
-console.log(await allCompanies())
 
-console.log(byCategoryId())
+
+//console.log(byCategoryId())
 
 
 

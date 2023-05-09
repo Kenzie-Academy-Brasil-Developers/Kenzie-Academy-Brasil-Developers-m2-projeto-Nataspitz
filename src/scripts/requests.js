@@ -99,6 +99,34 @@ export async function loginAccount(loginBody) {
     return urlLogin
 }
 
+export async function employeesProfile() {
+    const urlProfile = await fetch(`${urlBase}/employees/profile`, {
+        method: "GET",
+        headers: requestHeader,
+    })
+    try {
+        const response = urlProfile
+        return await response.json()
+    } catch (error) {
+        console.error(error)
+    }
+    return urlProfile
+}
+
+export async function departmentEmplouees(idEmployee) {
+    const urlDepartment = await fetch(`${urlBase}/departments/readById/${idEmployee}`, {
+        method: "GET",
+        headers: requestHeader
+    })
+    try {
+        const res = urlDepartment
+        return await res.json()
+    } catch (error) {
+        console.error(error)
+    }
+    return urlDepartment
+}
+
 
 
 

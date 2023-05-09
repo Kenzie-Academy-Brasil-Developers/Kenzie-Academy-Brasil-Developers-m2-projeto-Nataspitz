@@ -1,0 +1,23 @@
+#logout{
+    background-color: var(--grey-6);
+    color: var(--brand-1);
+    border: 1px solid var(--brand-1);
+    font-weight: var(--weigth-1);
+    height: 35px;
+    width: 90px;
+}
+#logout:hover{
+    background-color: var(--brand-2);
+    color: var(--grey-6);
+}
+
+main{
+    margin-top: 100px;
+}
+
+.user__container{
+    border: 1px solid var(--grey-3);
+    margin: 0 60px;
+    height: 105px;
+    padding: 10px;
+}

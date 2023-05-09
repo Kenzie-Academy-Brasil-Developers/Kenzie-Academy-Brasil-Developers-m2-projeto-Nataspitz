@@ -60,6 +60,11 @@ p{
 
 }
 
+button{
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size-text1);
+}
+
 header{
     border-bottom: 1px solid var(--grey-3);
     background-color: var(--grey-6);

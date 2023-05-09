@@ -8,10 +8,12 @@ export  async function selectByCategory(value) {
         const option = document.createElement("option")
         select.appendChild(option)
         option.innerText = item.name
-        option.value = item.name
-
-        
-
-        
+        option.value = item.id
+    
     })
+
+    select.addEventListener("change", () =>{
+        console.log(select.value)
+    })
+
 }
