@@ -10,6 +10,37 @@
     <title>Kenzie empresas - Dashboard</title>
 </head>
 <body>
-    
+    <header>
+        <figure class="header__logo">
+            <img src="../assets/img/logo.png" alt="Logo">
+            <figcaption>Kenzie Empresas</figcaption>
+        </figure>
+        
+        <button id="logout">Logout</button>
+    </header>
+
+    <main>
+        <div class="container__select">
+            <select  id="companies">
+                <option>Selecione Empresa</option>
+            </select>
+        </div>
+
+        <section class="department">
+            <div class="department__header">
+                <h2>Departamentos</h2>
+                <button>+ Criar</button>
+            </div>
+
+            <ul class="department__list"></ul>
+        </section>
+
+        <section class="users">
+            <h2>Usuários cadastrados</h2>
+
+            <ul class="users__list"></ul>
+        </section>
+    </main>
+
 </body>
 </html>

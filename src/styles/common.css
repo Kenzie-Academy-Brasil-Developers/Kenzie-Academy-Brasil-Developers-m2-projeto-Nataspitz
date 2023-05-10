@@ -21,3 +21,39 @@ main{
     height: 105px;
     padding: 10px;
 }
+
+.department__container{
+    border: 1px solid var(--grey-3);
+    margin: 30px 60px;
+    height: 300px;
+    padding: 0 0px;
+    background-color: var(--grey-5);    
+}
+
+.department__container > h1{
+    margin: 120px 180px;
+}
+
+.department__title{
+    background-color: var(--brand-1);
+    height: 50px;
+    display: flex;
+}
+
+.department__title > h1{
+    color: var(--grey-6);
+    margin: auto;
+}
+ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+    border: 1px solid var(--brand-1);
+    background-color: var(--grey-6);
+    width: 220px;
+    height: 90px;
+    margin: 15px;
+    padding: 10px;
+}

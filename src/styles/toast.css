@@ -1,0 +1,43 @@
+.toast__container{
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    border: 1px solid;
+    color: var(--grey-6);
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 1s linear;
+}
+
+.toast__remove{
+    animation: FadeOut 1s linear;
+}
+
+@keyframes fadeIn{
+    0%{
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateX(-150);
+        opacity: 0;
+    }
+}
+

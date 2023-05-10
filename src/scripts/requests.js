@@ -22,8 +22,8 @@ export async function allCategories(){
     return urlCategory
 }
 
-export async function byCategoryId(id) {
-    const urlFilter = await fetch(`${urlBase}/companies/readByCategory/${id}`, {
+export async function byCategoryName(name) {
+    const urlFilter = await fetch(`${urlBase}/companies/readByCategory/${name}`, {
         method: "GET"
     })
     try {
@@ -127,6 +127,33 @@ export async function departmentEmplouees(idEmployee) {
     return urlDepartment
 }
 
+export async function allEmployees() {
+    const urlEmployees = await fetch(`${urlBase}/employees/readAll`, {
+        method: "GET",
+        headers: requestHeader
+    })
+    try {
+        const res = urlEmployees
+        return await res.json()
+    } catch (error) {
+        console.error(error)
+    }
+    return urlEmployees
+}
+
+export async function companyId(id){
+    const urlCompany = await fetch(`${urlBase}/companies/readById/${id}`, {
+        method: "GET",
+        headers: requestHeader
+    })
+    try {
+        const res = urlCompany
+        return await res.json()
+    } catch (error) {
+        console.error(error)
+    }
+    return urlCompany
+} 
 
 
 

@@ -6,7 +6,6 @@ function pullLogin() {
     const inputs = document.querySelectorAll(" form > input")
     const button = document.querySelector("form > button")
     let login = {}
-    let count = 0
 
     button.addEventListener("click", async (event) =>{
         event.preventDefault()
