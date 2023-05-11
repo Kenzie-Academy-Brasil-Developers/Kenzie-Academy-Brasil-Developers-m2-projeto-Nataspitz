@@ -36,16 +36,19 @@ export async function setectAllCompanies() {
         const company = await companyId(select.value)
         const div = document.querySelector(".department__container")
         const p = document.createElement("p")
+        div.innerText = ""
+    
         
         if (company.departments.length > 0) {
             renderDepartment(company)
-        }else if (select.value == "none") {                
-            div.appendChild(p)
-            p.innerText = `Selecione uma empresa`
+        }else if (select.innerText == "Selecione uma empresa") {                
+            const pHtml = document.querySelector("#dpt__text")
+            div.append(pHtml)
+            pHtml.innerHTML = pHtml.innerText
         }else {
-            
             div.appendChild(p)
             p.innerText = `Empresa ${company.name} não possui departamento`
+            p.classList.add("department__text")
         }
         
      })

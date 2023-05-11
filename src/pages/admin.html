@@ -9,6 +9,9 @@
     <script defer type="module" src="../scripts/admin.js"></script>
     <title>Kenzie empresas - Dashboard</title>
 </head>
+
+<dialog class="modal__editUser"></dialog>
+<dialog class="modal__deleteUser"></dialog>
 <body>
     <header>
         <figure class="header__logo">
@@ -22,7 +25,7 @@
     <main>
         <div class="container__select">
             <select  id="companies">
-                <option value="">Selecione Empresa</option>
+                <option value="none">Selecione Empresa</option>
             </select>
         </div>
 
@@ -32,7 +35,9 @@
                 <button>+ Criar</button>
             </div>
 
-            <div class="department__container"></div>
+            <div class="department__container">
+                <p id="dpt__text">Selecione uma empresa</p>
+            </div>
         </section>
 
         <section class="users">

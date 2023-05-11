@@ -77,6 +77,20 @@ li{
     margin: 10px 6% ;
 }
 
+.department__text{
+height: 280px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#dpt__text{
+ height: 280px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
 .department__container > ul{
     height: 100%;
     padding: 30px;

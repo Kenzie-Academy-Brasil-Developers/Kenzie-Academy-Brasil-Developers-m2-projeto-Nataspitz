@@ -1,4 +1,4 @@
-import { allEmployees, companyId, employeesProfile } from "./requests.js"
+                              import { allEmployees, companyId, employeesProfile } from "./requests.js"
 
 export async function renderCompanies(value) {
     const object = await value
@@ -131,6 +131,7 @@ export async function renderDepartment(arr) {
     const  departments = arr.departments 
 
     //container  > ul
+    
     const container = document.querySelector(".department__container")
     const ul = document.createElement("ul")
     container.appendChild(ul)
