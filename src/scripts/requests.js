@@ -84,6 +84,7 @@ export async function loginAccount(loginBody) {
             const resJson = await res.json()
             const {authToken, isAdm} = resJson
             localStorage.setItem("@Empresas : token", JSON.stringify(authToken))
+            localStorage.setItem("@Empresas : admin", JSON.stringify(isAdm))
 
            if (isAdm) {
             location.replace("./admin.html")

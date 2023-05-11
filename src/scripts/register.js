@@ -1,7 +1,8 @@
-import { registerForHome, registerForLogin } from "./navPages.js";
+import { authorizationDontLogin, registerForHome, registerForLogin } from "./navPages.js";
 import { createEmployee, red } from "./requests.js";
 import { toast } from "./toast.js";
 
+authorizationDontLogin()
 function createNewAccount() {
     const inputs = document.querySelectorAll("form > input")
     const button = document.querySelector("form > button")

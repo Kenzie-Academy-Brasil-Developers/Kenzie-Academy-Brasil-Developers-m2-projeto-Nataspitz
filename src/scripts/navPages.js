@@ -50,3 +50,51 @@ export function registerForHome() {
     })
 }
 
+export function authorizationAdmin() {
+    const admin = JSON.parse(localStorage.getItem("@Empresas : admin"))
+    const token = JSON.parse(localStorage.getItem("@Empresas : token"))
+
+    if (!token) {
+        location.replace("../../index.html")
+    }else if (token && !admin) {
+        location.replace("./common.html")
+    }
+}
+
+export function authorizationComoon() {
+    const admin = JSON.parse(localStorage.getItem("@Empresas : admin"))
+    const token = JSON.parse(localStorage.getItem("@Empresas : token"))
+
+    if (!token) {
+        location.replace("../../index.html")
+    }else if (token && admin) {
+        location.replace("./admin.html")
+    }
+}
+
+
+export function authorizationDontLogin() {
+    const admin = JSON.parse(localStorage.getItem("@Empresas : admin"))
+    const token = JSON.parse(localStorage.getItem("@Empresas : token"))
+
+    if (token && !admin) {
+        location.replace("./common.html")
+    }else if (token && admin) {
+        location.replace("./admin.html")
+    }
+}
+
+export function logout() {
+    const logout = document.querySelector("#logout")
+    console.log(logout)
+
+    logout.addEventListener("click", () =>{
+        localStorage.clear()
+        location.replace("../../index.html")
+    })
+}
+
+
+
+
+

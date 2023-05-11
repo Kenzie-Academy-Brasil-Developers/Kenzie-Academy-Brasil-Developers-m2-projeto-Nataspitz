@@ -65,15 +65,51 @@ h2{
     font-size: var(--font-size-title2);
 }
 
-ul{
+
+li{
+    list-style: none;
+}
+
+.department__container{
+    box-shadow: 2px 4px 0.5em var(--grey-3);
     background-color: var(--grey-5);
     height: 280px;
     margin: 10px 6% ;
-    overflow: auto;
 }
 
-.department > ul{
-    box-shadow: 2px 4px 0.5em var(--grey-3);
+.department__container > ul{
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
+.department__item{
+    border: solid 1px var(--brand-1);
+    background-color: var(--grey-6);
+    height: 120px;
+    width: 360px;
+    margin-bottom: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.department__data{
+    display: flex;
+    flex-direction: column;
+}
+
+.department__buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.department__view{
+    width: 20px;
 }
 
 .users >h2{
@@ -85,16 +121,22 @@ ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow-y: scroll;
+    background-color: var(--grey-5);
+    height: 280px;
+    margin: 10px 6% ;
+    border: 1px solid red;
 }
 
 .users__list > li{
     border: solid 1px var(--brand-1);
     background-color: var(--grey-6);
     height: 100px;
-    width: 45%;
+    width: 360px;
     margin-bottom: 30px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -104,7 +146,7 @@ p{
     color: var(--grey-1);
 }
 
-.list__data span{
+span{
     font-size: var(--font-size-text2);
     color: var(--grey-1);
 }
@@ -112,15 +154,22 @@ p{
 .list__buttons{
     display: flex;
     flex-direction: column;
-    margin-left: 40%;
+    margin: 10px ;
 }
 
 img{
     height: 20px;
     width: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
 
 
 

@@ -30,8 +30,14 @@ main{
     background-color: var(--grey-5);    
 }
 
+.department__text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .department__container > h1{
-    margin: 120px 180px;
+    margin: a
 }
 
 .department__title{

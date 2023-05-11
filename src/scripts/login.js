@@ -1,7 +1,8 @@
-import { loginForHome, loginForRegister } from "./navPages.js";
+import {  authorizationDontLogin, loginForHome, loginForRegister } from "./navPages.js";
 import { loginAccount, red } from "./requests.js";
 import { toast } from "./toast.js";
 
+authorizationDontLogin()
 function pullLogin() {
     const inputs = document.querySelectorAll(" form > input")
     const button = document.querySelector("form > button")
@@ -9,6 +10,7 @@ function pullLogin() {
 
     button.addEventListener("click", async (event) =>{
         event.preventDefault()
+
 
         inputs.forEach(input =>{
             if (input.value.trim() == "") {
@@ -28,7 +30,6 @@ function pullLogin() {
     
 }
 pullLogin()
-
 loginForRegister()
 loginForHome()
 

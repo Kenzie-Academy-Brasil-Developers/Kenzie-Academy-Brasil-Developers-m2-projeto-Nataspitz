@@ -126,3 +126,61 @@ export async function renderAllEmployees() {
         imgDelete.src = "../assets/img/remover.png" 
     })
 }
+
+export async function renderDepartment(arr) {
+    const  departments = arr.departments 
+
+    //container  > ul
+    const container = document.querySelector(".department__container")
+    const ul = document.createElement("ul")
+    container.appendChild(ul)
+    ul.innerText = ""
+    
+    departments.forEach(sector =>{
+        //ul > li
+        const li = document.createElement("li")
+        ul.appendChild(li)
+        li.classList.add("department__item")
+        
+        //li > divData
+        const divData = document.createElement("div")
+        li.appendChild(divData)
+        divData.classList.add("department__data")
+
+        //divData > p
+        const p = document.createElement("p")
+        divData.appendChild(p)
+        p.innerText = sector.name
+
+        //divData > spanDescription
+        const spanDescription = document.createElement("span")
+        divData.appendChild(spanDescription)
+        spanDescription.innerText = sector.description
+
+        //divData . spanCompany
+        const spanCompany = document.createElement("span")
+        divData.appendChild(spanCompany)
+        spanCompany.innerText = arr.name
+
+        //divButtons > li
+        const divButton = document.createElement("div")
+        li.appendChild(divButton)
+        divButton.classList.add("department__buttons")
+        li.appendChild(divButton)
+
+        //divButtons > img
+        const imgView = document.createElement("img") 
+        imgView.classList.add("department__view")
+        const imgEdit = document.createElement("img")
+        imgEdit.classList.add("department__edit")
+        const imgDelete = document.createElement("img")
+        imgDelete.classList.add("department__delete")
+        divButton.appendChild(imgView) 
+        divButton.appendChild(imgEdit)
+        divButton.appendChild(imgDelete) 
+        imgView.src = "../assets/img/vizualizar.png" 
+        imgEdit.src = "../assets/img/editar.png" 
+        imgDelete.src = "../assets/img/remover.png" 
+    })
+    
+}

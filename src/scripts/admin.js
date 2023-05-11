@@ -1,7 +1,12 @@
+import { setectAllCompanies } from "./filters.js";
+import { authorizationAdmin, logout } from "./navPages.js";
 import { renderAllEmployees } from "./render.js";
-import { allEmployees, companyId } from "./requests.js";
+import { allCompanies, allEmployees, companyId } from "./requests.js";
 
-
-console.log(await allEmployees())
+authorizationAdmin()
+await allEmployees()
 renderAllEmployees()
-console.log(await companyId("f170b435-ec69-43eb-9ba0-e6daa23f63e8"));
+await setectAllCompanies()
+console.log(await allCompanies());
+logout()
+
