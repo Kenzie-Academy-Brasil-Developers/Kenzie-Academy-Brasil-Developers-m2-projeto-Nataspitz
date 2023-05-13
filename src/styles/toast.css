@@ -4,7 +4,6 @@
     right: 32px;
     border: 1px solid;
     padding: 5px;
-    color: var(--grey-6);
     width: 220px;
     height: 100px;
     display: flex;
@@ -12,6 +11,10 @@
     justify-content: center;
     text-align: center;
     animation: fadeIn 1s linear;
+}
+
+.text__toast{
+    color: var(--grey-6);
 }
 
 .toast__remove{

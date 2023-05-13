@@ -50,7 +50,6 @@ export async function allCompanies(){
 
 //Funçoes abaixo baseadas na DEMO
 export async function createEmployee(body) {
-    console.log(body)
 const urlTask = await fetch(`${urlBase}/employees/create`, {
         method: "POST",
         headers : requestHeader,
@@ -59,11 +58,12 @@ const urlTask = await fetch(`${urlBase}/employees/create`, {
     .then(async (res) =>{
         if (res.ok) {
             toast(green, "Bem Vindo(a) à Kenzie Empresas")
-            location.replace("./login.html")
+            setTimeout( () =>{
+                location.replace("./login.html")
+            },2000 )
             return  await res.json()
         }else{
-            const response = await res.json()
-            toast(red, response.message)
+            toast(red, "Esses dados não podem ser preenchidos")
         }
     })
     .catch((error)=> {
@@ -155,6 +155,55 @@ export async function companyId(id){
     }
     return urlCompany
 } 
+
+export async function createDeparment(body) {
+    const urlCreate = await fetch(`${urlBase}/departments/create`, {
+        method: "POST",
+        headers : requestHeader,
+        body: JSON.stringify(body)
+    })
+    .then( async (res) =>{
+        if (res.ok) {
+            toast(green,"Depatramento criado")
+            return  await res.json()
+        }else{
+            toast(red, "Não foi possivel criar departamento")
+        }
+    })
+    return urlCreate
+}
+
+export async function requestEditUser(id, body) {
+    const urlEdit = await fetch(`${urlBase}/employees/updateEmployee/${id}`, {
+        method: "PATCH",
+        headers : requestHeader,
+        body: JSON.stringify(body)
+    })
+    .then(async (res) =>{
+        if (res.ok) {
+            toast(green,"Usuário editado")
+            return  await res.json()
+        }else{
+            toast(red, "dados inválidos")
+        }
+    })
+    return urlEdit
+}
+
+export async function requestDeleteUser(id, ) {
+    const urlDelete = await fetch(`${urlBase}/employees/deleteEmployee/${id}`, {
+        method: "DELETE",
+        headers : requestHeader,
+    })
+    .then( async (res) =>{
+        if (res.ok) {
+            toast(green,"Usuário excluído")
+            return await res.json()
+        }else{ console.error("erro")}
+    })
+
+     return urlDelete
+}
 
 
 

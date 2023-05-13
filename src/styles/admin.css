@@ -139,7 +139,6 @@ justify-content: center;
     background-color: var(--grey-5);
     height: 280px;
     margin: 10px 6% ;
-    border: 1px solid red;
 }
 
 .users__list > li{

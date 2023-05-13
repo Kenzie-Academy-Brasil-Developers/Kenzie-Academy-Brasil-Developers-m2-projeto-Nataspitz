@@ -86,7 +86,6 @@ export function authorizationDontLogin() {
 
 export function logout() {
     const logout = document.querySelector("#logout")
-    console.log(logout)
 
     logout.addEventListener("click", () =>{
         localStorage.clear()

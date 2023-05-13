@@ -5,13 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/toast.css">
     <link rel="stylesheet" href="../styles/admin.css">
     <script defer type="module" src="../scripts/admin.js"></script>
     <title>Kenzie empresas - Dashboard</title>
 </head>
 
-<dialog class="modal__editUser"></dialog>
-<dialog class="modal__deleteUser"></dialog>
+<dialog class="modal__CreateDepartment">
+    <button class="buttonX">X</button>
+    <h2>Criar Departarmento</h2>
+    <form class="createDepartment__form">
+        <input name="name" type="text" placeholder="Nome do Departamento">
+        <input name="description" type="text" name="Descrição" placeholder="descrição">
+        <select name="company_id" id="select__createDepartment">
+            <option value="">Selecione Empresa</option>
+        </select>
+        <button type="submit" id="createDepartment">Criar</button>
+    </form>
+</dialog>
+<dialog class="modal__viewDepartment">
+
+</dialog>
+<dialog class="modal__editDepartment">
+    <button id="exit__EditDepartment">X</button>
+    <h2>Editar Departamento</h2>
+    <form >
+        <textarea name="description" cols="30" rows="10" placeholder="Descrição"></textarea>
+        <button id="editDepartment" type="submit">Editar</button>
+    </form>
+</dialog>
+<dialog class="modal__deleteDepartment">
+    <h2>Realmente desaja remover o Departamento
+         <span class="span__name"></span> e demetir seus funcionários</h2>
+    <button id="removeDepartment">remover</button>
+</dialog>
+<dialog class="modal__editUser">
+    <button id="exit__editUser">X</button>
+    <h2>Editar Usuário</h2>
+    <form class="editUser__form">
+        <input name="name" type="text" placeholder="Nome">
+        <input name="email" type="email" placeholder="E-mail">
+        <button id="editUser" type="submit">Salvar</button>
+    </form>
+</dialog>
+<dialog class="modal__deleteUser">
+    <button class="button__X">X</button>
+    <h2>Realmente deseja excluir o usuário <span id="text__usuario"></span></h2>
+    <button class="removeUser">remover</button>
+</dialog>
+
 <body>
     <header>
         <figure class="header__logo">
@@ -32,7 +74,7 @@
         <section class="department">
             <div class="department__header">
                 <h2>Departamentos</h2>
-                <button>+ Criar</button>
+                <button id="create_department">+ Criar</button>
             </div>
 
             <div class="department__container">

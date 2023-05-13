@@ -11,6 +11,7 @@ export function toast(color , message) {
 
     //div > p
     const p = document.createElement("p")
+    p.classList.add("text__toast")
     div.appendChild(p)
     p.innerText = message
 

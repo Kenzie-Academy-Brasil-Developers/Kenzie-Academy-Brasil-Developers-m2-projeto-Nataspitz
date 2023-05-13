@@ -6,20 +6,29 @@ authorizationDontLogin()
 function createNewAccount() {
     const inputs = document.querySelectorAll("form > input")
     const button = document.querySelector("form > button")
+    let count = 0
     let create = {}
-    console.log(create)
+
 
     button.addEventListener("click",async (event)  =>{
         event.preventDefault()
 
         inputs.forEach((input) =>{
             if (input.value.trim() == "") {
-                return toast(red, "Preencha todos os dados")
+                count++
             }
             create[input.name] = input.value
 
         })
-        await createEmployee(create)
+
+        if (count != 0) {
+            count = 0
+            return toast(red, "Preencha todos os dados")
+        }else{
+            const token = await createEmployee(create)
+            return token
+        }
+
     })
 
 }

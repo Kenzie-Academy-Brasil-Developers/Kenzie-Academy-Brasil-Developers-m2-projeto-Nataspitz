@@ -1,4 +1,6 @@
-                              import { allEmployees, companyId, employeesProfile } from "./requests.js"
+//import { openModal } from "./modas.js"
+import { deleteUser, editUser } from "./modas.js"
+import { allEmployees, companyId, employeesProfile } from "./requests.js"
 
 export async function renderCompanies(value) {
     const object = await value
@@ -89,8 +91,9 @@ export async function renderAllEmployees() {
     const employees = await allEmployees()
     // await companyId(id)
     const ul = document.querySelector(".users__list")
+    ul.innerText = ""
 
-    employees.forEach( async employee =>{
+    employees.forEach( async (employee, index) =>{
         //ul > li 
         const li = document.createElement("li")
         ul.appendChild(li)
@@ -98,6 +101,7 @@ export async function renderAllEmployees() {
         //li > divEmployee
         const divEmployee = document.createElement("div")
         li.appendChild(divEmployee)
+        
     
         //divEmployee > p
         const p = document.createElement("p")
@@ -120,10 +124,34 @@ export async function renderAllEmployees() {
         //divButtons > img
         const imgEdit = document.createElement("img")
         const imgDelete = document.createElement("img")
+        
         divButton.appendChild(imgEdit)
+        imgEdit.classList.add("button__edit")
+        imgEdit.id = `editUser__${employee.id}`
         divButton.appendChild(imgDelete)
+        imgDelete.classList.add("button__delete")
+        imgDelete.id = `deleteUser__${employee.id}`
+
         imgEdit.src = "../assets/img/editar.png" 
         imgDelete.src = "../assets/img/remover.png" 
+
+        //modais
+        const modalEdit = document.querySelector(".modal__editUser")
+        const modalDelete = document.querySelector(".modal__deleteUser")
+        
+        imgEdit.addEventListener("click", () =>{
+            editUser(employee)
+            modalEdit.showModal()
+            console.log(employee);
+        })
+
+        imgDelete.addEventListener("click", () =>{
+            deleteUser(employee)
+            modalDelete.showModal()
+            
+        })
+
+
     })
 }
 
@@ -137,7 +165,7 @@ export async function renderDepartment(arr) {
     container.appendChild(ul)
     ul.innerText = ""
     
-    departments.forEach(sector =>{
+    departments.forEach((sector, index) =>{
         //ul > li
         const li = document.createElement("li")
         ul.appendChild(li)
@@ -176,12 +204,37 @@ export async function renderDepartment(arr) {
         imgEdit.classList.add("department__edit")
         const imgDelete = document.createElement("img")
         imgDelete.classList.add("department__delete")
+
         divButton.appendChild(imgView) 
+        imgView.id= `viewDepartment__${index}`
         divButton.appendChild(imgEdit)
+        imgEdit.id= `editDepartment__${index}`
         divButton.appendChild(imgDelete) 
+        imgDelete.id= `deleteDepartment__${index}`
+
         imgView.src = "../assets/img/vizualizar.png" 
         imgEdit.src = "../assets/img/editar.png" 
         imgDelete.src = "../assets/img/remover.png" 
+
+
+        const viewModal = document.querySelector(".modal__viewDepartment")
+        const editModal = document.querySelector(".modal__editDepartment")
+        const deleteModal = document.querySelector(".modal__deleteUser")
+
+        imgView.addEventListener("click", () =>{
+            console.log(sector);
+            viewModal.shoModal()
+        })
+
+        imgEdit.addEventListener("click", () =>{
+            console.log(sector);
+            editModal.showModal()
+        })
+
+        imgDelete.addEventListener("click", () =>{
+            console.log(sector);
+            deleteModal.showModal()
+        })
     })
     
 }

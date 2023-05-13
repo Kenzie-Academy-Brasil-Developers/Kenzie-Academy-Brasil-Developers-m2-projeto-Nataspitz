@@ -7,7 +7,8 @@ function pullLogin() {
     const inputs = document.querySelectorAll(" form > input")
     const button = document.querySelector("form > button")
     let login = {}
-
+    let count = 0
+    
     button.addEventListener("click", async (event) =>{
         event.preventDefault()
 
@@ -18,14 +19,15 @@ function pullLogin() {
             }
             login[input.name] = input.value
            
-            if (input /= 0) {
-                return toast(red, "Por favor preencha todos os campos")
-            }else{ 
-                const token = loginAccount(login)
-                return token
-            }
         })
-
+        
+        if (count /= 0) {
+            count = 0
+            return toast(red, "Por favor preencha todos os campos")
+        }else{ 
+            const token = loginAccount(login)
+            return token
+        }
     })
     
 }
