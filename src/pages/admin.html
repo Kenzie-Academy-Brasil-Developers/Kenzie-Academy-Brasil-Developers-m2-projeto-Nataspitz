@@ -24,10 +24,22 @@
     </form>
 </dialog>
 <dialog class="modal__viewDepartment">
-
+    <button class="button__X">X</button>
+    <h2></h2>
+    <p class="modal__description"></p>
+    <p class="modal__paragraph">Empresa pertencente</p>
+    <form>
+        <select class="select__noDepartment" name="department_id">               
+            <option>Selecione usuário</option>
+        </select>
+        <button id="hire" type="submit">Contratar</button>
+    </form>
+    <div class="modal__container">
+        <ul></ul>
+    </div>
 </dialog>
 <dialog class="modal__editDepartment">
-    <button id="exit__EditDepartment">X</button>
+    <button class="button__X">X</button>
     <h2>Editar Departamento</h2>
     <form >
         <textarea name="description" cols="30" rows="10" placeholder="Descrição"></textarea>
@@ -35,6 +47,7 @@
     </form>
 </dialog>
 <dialog class="modal__deleteDepartment">
+    <button class="button__X">X</button>
     <h2>Realmente desaja remover o Departamento
          <span class="span__name"></span> e demetir seus funcionários</h2>
     <button id="removeDepartment">remover</button>

@@ -1,6 +1,6 @@
 import { authorizationComoon, logout} from "./navPages.js";
 import { employeeDontWork, hiredEmployee, renderProfile } from "./render.js";
-import { departmentEmplouees, employeesProfile } from "./requests.js";
+import { departmentById, employeesProfile } from "./requests.js";
 
 authorizationComoon()
 await checkinCompany()
@@ -16,7 +16,7 @@ async function checkinCompany() {
         container.classList.add("department__text")
         employeeDontWork()
     }else{
-        const sector = await departmentEmplouees(obj.department_id)
+        const sector = await departmentById(obj.department_id)
         hiredEmployee(sector)
     }
  

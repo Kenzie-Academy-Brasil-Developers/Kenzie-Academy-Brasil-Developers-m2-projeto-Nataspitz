@@ -1,5 +1,5 @@
-import { renderAllEmployees } from "./render.js"
-import { allCompanies, createDeparment, requestDeleteUser, requestEditUser } from "./requests.js"
+import { renderAllEmployees, renderDepartment } from "./render.js"
+import { allCompanies, companyId, createDeparment, departmentById, requestDeleteDepatment, requestDeleteUser, requestDismiss, requestEdiitDepartment, requestEditUser, requestHire, resquestEmployeesNoDepartment } from "./requests.js"
 
 
 export function openCreateDeparment() {
@@ -10,7 +10,7 @@ export function openCreateDeparment() {
         modal.showModal()
     })
     
-}
+}                                                 
 
 export async  function createDepartment() {
     let dataBase = {}
@@ -43,6 +43,7 @@ export async  function createDepartment() {
             dataBase[input.name] = input.value
         })
         createDeparment(dataBase)
+        renderDepartment()
         modal.close()
     })
     
@@ -50,6 +51,117 @@ export async  function createDepartment() {
         const modal = document.querySelector(".modal__CreateDepartment")
         modal.close()
     })
+}
+
+export async function viewDepartment(department) {
+    const  noDepartment = await resquestEmployeesNoDepartment()
+    const sector = await departmentById(department.id)
+    const employees = sector.employees
+    const company = sector.company
+    const modal = document.querySelector(".modal__viewDepartment")
+    const h2 = document.querySelector(".modal__viewDepartment > h2")
+    const pDescription = document.querySelector(".modal__description")
+    const select = document.querySelector(".select__noDepartment")
+    const button = document.querySelector("#hire")
+    const ul = document.querySelector(".modal__container > ul")
+    let id = {}
+    let departmentId = {"department_id": `${department.id}`}
+    
+    h2.innerText = department.name
+    pDescription.innerText = department.description
+    
+    noDepartment.forEach(employee =>{
+        const option = document.createElement("option")
+        select.appendChild(option)
+        option.innerText = employee.name
+        option.value = employee.id
+    })    
+
+    select.addEventListener("change", () =>{
+        id = select.value
+    })
+    
+    button.addEventListener("click", (event) =>{
+        event.preventDefault()
+        modal.close()
+        requestHire(id, departmentId)
+    })
+
+    employees.forEach(async (employee)  =>{
+        const li = document.createElement("li")
+        ul.appendChild(li)
+        li.classList.add("list__employeeDismiss")
+        
+        const pName = document.createElement("p")
+        li.appendChild(pName)
+        pName.innerText =  employee.name
+
+        const spanCompany = document.createElement("span")
+        li.appendChild(spanCompany)
+        spanCompany.innerText = company.name
+
+        const buttonDismiss = document.createElement("button")
+        li.appendChild(buttonDismiss)
+        buttonDismiss.innerText = "Desligar"
+
+        buttonDismiss.addEventListener("click", () =>{
+            const modal = document.querySelector(".modal__viewDepartment")
+            requestDismiss(employee.id)
+            modal.showModal()
+        })
+    })
+    
+    
+}
+
+export function editDeptartment(department) {
+    const modal = document.querySelector(".modal__editDepartment")
+    const button = document.querySelector("#editDepartment")
+    const buttonX = document.querySelector(".button__X")
+    const textarea = document.querySelector("form > textarea")
+    textarea.innerHTML = department.description
+    console.log(department);
+    let dataBase = {}
+
+    button.addEventListener("click",async  (event) =>{
+        event.preventDefault()
+        dataBase[textarea.name] = textarea.value
+        await requestEdiitDepartment(department.id, dataBase)
+        console.log(department.id,dataBase);
+        modal.xlose()
+
+    })
+
+    buttonX.addEventListener("click", () =>{
+        modal.close()
+    })
+
+    
+}
+
+export function deleteDepartment(department) {
+    const modal = document.querySelector(".modal__deleteDepartment")
+    const buttonX = document.querySelector(".button__X")
+    const span = document.querySelector(".span__name")
+    const button = document.querySelector("#removeDepartment")
+    span.innerText = department.name
+    
+    button.addEventListener("click", async(event) =>{
+        event.preventDefault()
+        console.log(department);
+        modal.close()
+        await requestDeleteDepatment(department.id)
+        const select = document.querySelector("#companies")
+        const company = await companyId(select.value)
+        await renderDepartment(company)
+        
+    })
+    
+    buttonX.addEventListener("click", () =>{
+        const modal = document.querySelector(".modal__deleteDepartment")
+        modal.close()
+    })
+    
 }
 
 export function editUser(user) {

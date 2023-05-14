@@ -114,8 +114,8 @@ export async function employeesProfile() {
     return urlProfile
 }
 
-export async function departmentEmplouees(idEmployee) {
-    const urlDepartment = await fetch(`${urlBase}/departments/readById/${idEmployee}`, {
+export async function departmentById(id) {
+    const urlDepartment = await fetch(`${urlBase}/departments/readById/${id}`, {
         method: "GET",
         headers: requestHeader
     })
@@ -190,7 +190,7 @@ export async function requestEditUser(id, body) {
     return urlEdit
 }
 
-export async function requestDeleteUser(id, ) {
+export async function requestDeleteUser(id ) {
     const urlDelete = await fetch(`${urlBase}/employees/deleteEmployee/${id}`, {
         method: "DELETE",
         headers : requestHeader,
@@ -203,6 +203,81 @@ export async function requestDeleteUser(id, ) {
     })
 
      return urlDelete
+}
+
+export async function requestDeleteDepatment(id) {
+    const urlDelete = await fetch(`${urlBase}/departments/delete/${id}`, {
+        method: "DELETE",
+        headers : requestHeader,
+    })
+    .then( async (res) =>{
+        if (res.ok) {
+            toast(green,"Departamento excluído")
+            return await res.json()
+        }else{ console.error("erro")}
+    })
+
+     return urlDelete
+}
+
+export async function requestEdiitDepartment(id, body) {
+    const urlEdit = await fetch(`${urlBase}/departments/update/${id}`, {
+        method: "PATCH",
+        headers : requestHeader,
+        body: JSON.stringify(body)
+    })
+    .then(async (res) =>{
+        if (res.ok) {
+            toast(green,"Descrição editada")
+            return  await res.json()
+        }else{
+            toast(red, "Essa descrição já existe")
+        }
+    })
+    return urlEdit
+}
+
+export async function resquestEmployeesNoDepartment() {
+    const urlEmployees = await fetch(`${urlBase}/employees/outOfWork`, {
+        method: "GET",
+        headers: requestHeader
+    })
+    try {
+        const res = urlEmployees
+        return await res.json()
+    } catch (error) {
+        console.error(error)
+    }
+    return urlEmployees
+}
+
+export async function requestHire(id, body) {
+    const urlEmployee = await fetch(`${urlBase}/employees/hireEmployee/${id}`, {
+        method: "PATCH",
+        headers : requestHeader,
+        body: JSON.stringify(body)
+    })
+    .then(async (res) =>{
+        if (res.ok) {
+            toast(green,"Funcionário contratado com sucesso")
+            return  await res.json()
+        }
+    })
+    return urlEmployee
+}
+
+export async function requestDismiss(id) {
+    const urlEmployee = await fetch(`${urlBase}/employees/dismissEmployee/${id}`, {
+        method: "PATCH",
+        headers : requestHeader
+    })
+    .then(async (res) =>{
+        if (res.ok) {
+            toast(green,"Funcionário desligado com sucesso")
+            return  await res.json()
+        }
+    })
+    return urlEmployee
 }
 
 

@@ -1,5 +1,5 @@
 //import { openModal } from "./modas.js"
-import { deleteUser, editUser } from "./modas.js"
+import { deleteDepartment, deleteUser, editDeptartment, editUser, viewDepartment } from "./modas.js"
 import { allEmployees, companyId, employeesProfile } from "./requests.js"
 
 export async function renderCompanies(value) {
@@ -219,20 +219,21 @@ export async function renderDepartment(arr) {
 
         const viewModal = document.querySelector(".modal__viewDepartment")
         const editModal = document.querySelector(".modal__editDepartment")
-        const deleteModal = document.querySelector(".modal__deleteUser")
+        const deleteModal = document.querySelector(".modal__deleteDepartment")
 
         imgView.addEventListener("click", () =>{
             console.log(sector);
-            viewModal.shoModal()
+            viewDepartment(sector)
+            viewModal.showModal()
         })
 
         imgEdit.addEventListener("click", () =>{
-            console.log(sector);
+            editDeptartment(sector)
             editModal.showModal()
         })
 
         imgDelete.addEventListener("click", () =>{
-            console.log(sector);
+            deleteDepartment(sector)
             deleteModal.showModal()
         })
     })
