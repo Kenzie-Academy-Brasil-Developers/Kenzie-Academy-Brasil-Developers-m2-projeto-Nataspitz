@@ -57,7 +57,7 @@ select{
 
 .companies__card{
     list-style: none;
-    border: 2px solid red;
+    border: 2px solid var(--brand-1)
     height: 80px;
     margin-bottom: 20px;
     padding: 10px;
